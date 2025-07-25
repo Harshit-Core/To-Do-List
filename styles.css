@@ -1,0 +1,477 @@
+/* Category badge styles removed */
+
+/* Theme toggle button */
+.theme-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid #494a4b;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+/* Dark theme styles */
+body.dark-theme {
+  background-color: #1a1625;
+  color: #e0e0e0;
+}
+
+body.dark-theme .container {
+  background: #2d2438;
+  background-image: radial-gradient(#3d3248 7.2%, transparent 0);
+  box-shadow: 4px 3px 7px 2px rgba(0, 0, 0, 0.6);
+}
+
+body.dark-theme .heading__title {
+  background-color: rgba(36, 191, 251, 0.8);
+  color: #1a1625;
+}
+
+body.dark-theme .form__input {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #e0e0e0;
+  border-bottom: dashed 3px #6a5acd;
+}
+
+body.dark-theme .form__input:focus {
+  border: solid 3px #6a5acd;
+}
+
+body.dark-theme .button {
+  background-color: rgba(36, 191, 251, 0.8);
+}
+
+body.dark-theme .button span {
+  background: #2d2438;
+  border: 2px solid #e0e0e0;
+  color: #e0e0e0;
+}
+
+body.dark-theme .toDoList li {
+  color: #e0e0e0;
+}
+
+body.dark-theme .toDoList li.done {
+  color: #888;
+}
+
+body.dark-theme .priority-select,
+body.dark-theme .due-date-input,
+body.dark-theme .edit-input {
+  background: #3d3248;
+  color: #e0e0e0;
+  border-color: #6a5acd;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme .priority-select:focus,
+body.dark-theme .due-date-input:focus,
+body.dark-theme .edit-input:focus {
+  border-color: #24bffb;
+  box-shadow: 0 0 0 2px rgba(106, 90, 205, 0.5);
+}
+
+body.dark-theme .priority-select option {
+  background: #3d3248;
+  color: #e0e0e0;
+}
+
+body.dark-theme .due-date-label {
+  background: #4a4458;
+  color: #e0e0e0;
+}
+
+body.dark-theme .theme-toggle {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: #e0e0e0;
+}
+/* Due date label and overdue styles */
+.due-date-label {
+  display: inline-block;
+  margin-left: 0.3em;
+  padding: 0.02em 0.15em;
+  border-radius: 3px;
+  font-size: 0.5em;
+  font-weight: bold;
+  letter-spacing: 0.1px;
+  vertical-align: middle;
+  background: #e0e7ef;
+  color: #494a4b;
+}
+.due-date-label.overdue {
+  background: #eb3b5a;
+  color: #fff;
+  border: 1px solid #eb3b5a;
+  font-size: 0.45em;
+  padding: 0.02em 0.12em;
+  border-radius: 2px;
+  margin-left: 0.25em;
+}
+.due-date-input {
+  font-family: "Gochi Hand", cursive;
+  font-size: 1em;
+  padding: 0.5em 1.2em 0.5em 0.7em;
+  border: 2px solid #ea95e0;
+  border-radius: 8px;
+  background: #f1f5f8;
+  color: #494a4b;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  box-shadow: 0 1px 4px #bfc0c1;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+.due-date-input {
+  font-family: "Gochi Hand", cursive;
+  font-size: 0.85em;
+  padding: 0.13em 0.4em 0.13em 0.3em;
+  border: 2px solid #ea95e0;
+  border-radius: 6px;
+  background: #f1f5f8;
+  color: #494a4b;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  box-shadow: 0 1px 2px #bfc0c1;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  min-width: 80px;
+  max-width: 110px;
+}
+.due-date-input:focus {
+  border: 2px solid #24bffb;
+  box-shadow: 0 0 0 2px #a39bd2;
+}
+/* Priority select dropdown styling */
+.priority-select {
+  font-family: "Gochi Hand", cursive;
+  font-size: 1em;
+  padding: 0.5em 1.2em 0.5em 0.7em;
+  border: 2px solid #ea95e0;
+  border-radius: 8px;
+  background: #f1f5f8;
+  color: #494a4b;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  box-shadow: 0 1px 4px #bfc0c1;
+  appearance: none;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+.priority-select {
+  font-family: "Gochi Hand", cursive;
+  font-size: 0.92em;
+  padding: 0.25em 0.7em 0.25em 0.5em;
+  border: 2px solid #ea95e0;
+  border-radius: 7px;
+  background: #f1f5f8;
+  color: #494a4b;
+  margin-left: 0.3em;
+  margin-right: 0.3em;
+  box-shadow: 0 1px 3px #bfc0c1;
+  appearance: none;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  min-width: 90px;
+  max-width: 130px;
+}
+.priority-select:focus {
+  border: 2px solid #24bffb;
+  box-shadow: 0 0 0 2px #a39bd2;
+}
+.priority-select option {
+  background: #f1f5f8;
+  color: #494a4b;
+}
+/* Priority badge styles */
+.priority-badge {
+  display: inline-block;
+  margin-left: 0.3em;
+  padding: 0.02em 0.15em;
+  border-radius: 3px;
+  font-size: 0.5em;
+  font-weight: bold;
+  letter-spacing: 0.1px;
+  vertical-align: middle;
+  color: #fff;
+}
+.priority-badge.low {
+  background: #6bcf63;
+}
+.priority-badge.medium {
+  background: #f7b731;
+}
+.priority-badge.high {
+  background: #eb3b5a;
+}
+/* Edit input style for double-click editing */
+.edit-input {
+  font-family: "Gochi Hand", cursive;
+  font-size: 1.1em;
+  padding: 0.4em 0.7em;
+  border: 2px solid #24bffb;
+  border-radius: 8px;
+  outline: none;
+  margin-left: 0.1em;
+  background: #f1f5f8;
+  color: #494a4b;
+  box-shadow: 0 1px 4px #bfc0c1;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+.edit-input:focus {
+  border: 2px solid #ea95e0;
+  box-shadow: 0 0 0 2px #a39bd2;
+}
+@import url("https://fonts.googleapis.com/css?family=Gochi+Hand");
+body {
+  background-color: #a39bd2;
+  min-height: 70vh;
+  padding: 1rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #494a4b;
+  font-family: "Gochi Hand", cursive;
+  text-align: center;
+  font-size: 130%;
+}
+
+/* Enhanced responsive design */
+@media only screen and (max-width: 480px) {
+  body {
+    padding: 0.5rem;
+    font-size: 120%;
+  }
+  
+  .container {
+    min-width: 280px;
+    padding: 0.8rem;
+  }
+  
+  .heading__title {
+    font-size: 1.3rem;
+  }
+  
+  .form__input {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .priority-select,
+  .due-date-input {
+    font-size: 0.8em;
+    margin: 0.2em;
+    min-width: 70px;
+    max-width: 90px;
+  }
+  
+  .theme-toggle {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+  
+  .toDoList li {
+    padding: 0.3rem 0.3rem 0.3rem 0;
+    flex-wrap: wrap;
+  }
+  
+  .toDoList li span {
+    font-size: 1em;
+  }
+  
+  .priority-badge,
+  .due-date-label {
+    font-size: 0.75em;
+    margin-left: 0.3em;
+    padding: 0.1em 0.5em;
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  body {
+    min-height: 100vh;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    max-width: 600px;
+  }
+  
+  .heading__title {
+    font-size: 2.2rem;
+  }
+  
+  .form__input {
+    width: 50%;
+  }
+}
+.container {
+  width: 100%;
+  height: auto;
+  min-height: 500px;
+  max-width: 500px;
+  min-width: 250px;
+  background: #f1f5f8;
+  background-image: radial-gradient(#bfc0c1 7.2%, transparent 0);
+  background-size: 25px 25px;
+  border-radius: 20px;
+  box-shadow: 4px 3px 7px 2px #00000040;
+  padding: 1rem;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.heading__title {
+  transform: rotate(2deg);
+  padding: 0.2rem 1.2rem;
+  border-radius: 20% 5% 20% 5%/5% 20% 25% 20%;
+  background-color: rgba(0, 255, 196, 0.7);
+  font-size: 1.5rem;
+}
+
+@media only screen and (min-width: 500px) {
+  .heading__title {
+    font-size: 2rem;
+  }
+}
+.heading__img {
+  width: 24%;
+}
+
+.form__label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form__input {
+  box-sizing: border-box;
+  background-color: transparent;
+  padding: 0.7rem;
+  border-bottom-right-radius: 15px 3px;
+  border-bottom-left-radius: 3px 15px;
+  border: solid 3px transparent;
+  border-bottom: dashed 3px #ea95e0;
+  font-family: "Gochi Hand", cursive;
+  font-size: 1rem;
+  color: rgba(63, 62, 65, 0.7);
+  width: 70%;
+  margin-bottom: 20px;
+}
+.form__input:focus {
+  outline: none;
+  border: solid 3px #ea95e0;
+}
+
+@media only screen and (min-width: 500px) {
+  .form__input {
+    width: 60%;
+  }
+}
+
+/* Remove duplicate media query - handled above */
+.button {
+  padding: 0;
+  border: none;
+  transform: rotate(4deg);
+  transform-origin: center;
+  font-family: "Gochi Hand", cursive;
+  text-decoration: none;
+  padding-bottom: 3px;
+  border-radius: 5px;
+  box-shadow: 0 2px 0 #494a4b;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background-image: url("data:image/gif;base64,R0lGODlhBAAEAIABAAAAAAAAACH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5NUY1OENCRDdDMDYxMUUyOTEzMEE1MEM5QzM0NDVBMyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo5NUY1OENCRTdDMDYxMUUyOTEzMEE1MEM5QzM0NDVBMyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjk1RjU4Q0JCN0MwNjExRTI5MTMwQTUwQzlDMzQ0NUEzIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjk1RjU4Q0JDN0MwNjExRTI5MTMwQTUwQzlDMzQ0NUEzIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAQAAAQAsAAAAAAQABAAAAgYEEpdoeQUAOw==");
+  background-color: rgba(0, 255, 196, 0.7);
+}
+
+.button span {
+  background: #f1f5f8;
+  display: block;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: 2px solid #494a4b;
+}
+
+.button:active, .button:focus {
+  transform: translateY(4px);
+  padding-bottom: 0px;
+  outline: 0;
+}
+
+.toDoList {
+  text-align: left;
+}
+
+.toDoList li {
+  position: relative;
+  padding: 0.5rem 0.5rem 0.5rem 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.toDoList li input[type="checkbox"].toggle-done-checkbox {
+  margin-right: 0.9em;
+  margin-left: 0;
+  accent-color: #24bffb;
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 50%;
+  border: 2px solid #24bffb;
+  box-shadow: 0 1px 2px #bfc0c1;
+  transition: box-shadow 0.2s;
+  outline: none;
+}
+.toDoList li input[type="checkbox"].toggle-done-checkbox:focus {
+  box-shadow: 0 0 0 2px #a39bd2;
+}
+.toDoList li input[type="checkbox"].toggle-done-checkbox:checked {
+  background-color: #24bffb;
+  border-color: #24bffb;
+}
+.toDoList li span {
+  font-size: 1.1em;
+  margin-left: 0.1em;
+}
+
+.toDoList li input[type="checkbox"].toggle-done-checkbox {
+  margin-right: 0.7em;
+  margin-left: 0.1em;
+}
+
+/* Keep line-through for done tasks always */
+.toDoList li.done {
+  text-decoration: line-through wavy #24bffb;
+  color: #888;
+}
