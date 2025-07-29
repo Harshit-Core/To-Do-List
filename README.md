@@ -17,6 +17,9 @@ A modern, feature-rich to-do list application with priority management, due date
 - 🌙 **Theme Toggle** - Switch between light and dark themes (saves preference)
 - 📱 **Responsive Design** - Works perfectly on mobile, tablet, and desktop
 - ✏️ **In-place Editing** - Double-click to edit tasks without losing context
+- 📋 **Multiple Lists** - Create and manage separate lists for different projects
+- 🔄 **List Switching** - Quickly switch between different task lists
+- 🗑️ **List Management** - Add new lists and delete unwanted ones
 
 ## 🎨 Design Features
 
@@ -26,6 +29,8 @@ A modern, feature-rich to-do list application with priority management, due date
 - **Compact Date Display** - Shows dates as "25 / July" format
 - **Overdue Highlighting** - Past due dates are highlighted in red
 - **Smooth Animations** - Hover effects and transitions throughout
+- **List Tabs Interface** - Easy-to-use tabs for switching between lists
+- **List Management Controls** - Clean input and button design for adding lists
 
 ### Theme Support
 - **Light Theme** - Purple gradient background with light container
@@ -47,10 +52,17 @@ A modern, feature-rich to-do list application with priority management, due date
 ## 🎯 Usage Guide
 
 ### Adding Tasks
-1. Type your task in the main input field
-2. Select priority (Low/Medium/High)
-3. Optionally set a due date
-4. Click "Submit" button
+1. Select the list you want to add the task to (or stay on Main List)
+2. Type your task in the main input field
+3. Select priority (Low/Medium/High)
+4. Optionally set a due date
+5. Click "Submit" button
+
+### Managing Lists
+- **Create New List**: Type a name in "New list name..." field and click "+ Add List" or press Enter
+- **Switch Lists**: Click on any list tab to switch to that list
+- **Delete Lists**: Click the "×" button on any list tab (Main List cannot be deleted)
+- **Organize Tasks**: Each list maintains its own separate tasks
 
 ### Managing Tasks
 - **Complete**: Click the checkbox next to any task
@@ -59,9 +71,10 @@ A modern, feature-rich to-do list application with priority management, due date
 - **Theme**: Click the moon/sun icon in the top-right corner
 
 ### Keyboard Shortcuts
-- **Enter** - Submit new task or finish editing
+- **Enter** - Submit new task, finish editing, or create new list
 - **Double-click** - Start editing a task
 - **Escape/Click outside** - Cancel editing
+- **Tab Navigation** - Navigate between form elements and list tabs
 
 ## 🛠️ Technical Stack
 
@@ -96,14 +109,16 @@ To-Do-List/
 ## 🌟 Future Enhancements
 
 Potential features that could be added:
-- Task categories/tags
-- Drag-and-drop reordering
-- Task counters (total, completed, remaining)
-- Clear completed tasks button
-- Export/import functionality
-- Search and filter options
+- Task categories/tags within lists
+- Drag-and-drop reordering of tasks and lists
+- Task counters (total, completed, remaining) per list
+- Clear completed tasks button for each list
+- Export/import functionality for individual lists
+- Search and filter options across all lists
 - Recurring tasks
-- Multiple lists/projects
+- List templates and sharing
+- Cloud sync for multiple lists
+- Task dependencies between lists
 
 ## 🐛 Browser Support
 
@@ -123,9 +138,11 @@ Built with modern web technologies and best practices:
 - Semantic HTML
 - CSS Grid and Flexbox
 - ES6 Modules (IIFE pattern)
-- LocalStorage for persistence
-- Event delegation
+- LocalStorage for theme persistence
+- Event delegation for dynamic content
 - Responsive design principles
+- Multiple list state management
+- Dynamic DOM manipulation for list tabs
 
 ---
 
