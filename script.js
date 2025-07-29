@@ -1,7 +1,10 @@
 // IEFE
 (() => {
   // state variables
-  let toDoListArray = [];
+  let allLists = {
+    'default': []
+  };
+  let currentListId = 'default';
 
   // ui variables
   const form = document.querySelector(".form");
@@ -10,6 +13,9 @@
   const dueDateInput = document.getElementById("due-date");
   const ul = document.querySelector(".toDoList");
   const themeToggle = document.getElementById("theme-toggle");
+  const listTabs = document.getElementById("list-tabs");
+  const newListInput = document.getElementById("new-list-input");
+  const addListBtn = document.getElementById("add-list-btn");
 
   // event listeners
   form.addEventListener('submit', e => {
@@ -33,6 +39,41 @@
     prioritySelect.value = 'medium';
   });
 
+  // List tab switching
+  listTabs.addEventListener('click', e => {
+    if (e.target.classList.contains('list-tab')) {
+      const listId = e.target.getAttribute('data-list');
+      if (listId) {
+        switchToList(listId);
+      }
+    } else if (e.target.classList.contains('delete-list')) {
+      const listId = e.target.closest('.list-tab').getAttribute('data-list');
+      if (listId && listId !== 'default') {
+        deleteList(listId);
+      }
+    }
+  });
+
+  // Add new list
+  addListBtn.addEventListener('click', () => {
+    const listName = newListInput.value.trim();
+    if (listName) {
+      createNewList(listName);
+      newListInput.value = '';
+    }
+  });
+
+  // Add list on Enter key
+  newListInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      const listName = newListInput.value.trim();
+      if (listName) {
+        createNewList(listName);
+        newListInput.value = '';
+      }
+    }
+  });
+
   ul.addEventListener('change', e => {
     if (e.target.classList.contains('toggle-done-checkbox')) {
       let id = e.target.closest('li').getAttribute('data-id');
@@ -47,7 +88,7 @@
     if (!li) return;
     let id = li.getAttribute('data-id');
     if (!id) return;
-    let item = toDoListArray.find(item => item.itemId === id);
+    let item = getCurrentList().find(item => item.itemId === id);
     if (!item || item.done) return; // Don't edit done tasks
     const inputEdit = document.createElement('input');
     inputEdit.type = 'text';
@@ -60,12 +101,12 @@
       const newValue = inputEdit.value;
       if (newValue === "") {
         // Remove the task if blank
-        toDoListArray = toDoListArray.filter(it => it.itemId !== id);
+        allLists[currentListId] = getCurrentList().filter(it => it.itemId !== id);
         renderList();
         return;
       }
       if (newValue !== item.toDoItem) {
-        toDoListArray = toDoListArray.map(it => it.itemId === id ? { ...it, toDoItem: newValue } : it);
+        allLists[currentListId] = getCurrentList().map(it => it.itemId === id ? { ...it, toDoItem: newValue } : it);
       }
       renderList();
     }
@@ -96,6 +137,56 @@
   }
 
   // functions
+  function getCurrentList() {
+    return allLists[currentListId] || [];
+  }
+
+  function createNewList(name) {
+    const listId = 'list_' + Date.now();
+    allLists[listId] = [];
+    
+    // Add new tab
+    const newTab = document.createElement('button');
+    newTab.className = 'list-tab';
+    newTab.setAttribute('data-list', listId);
+    newTab.innerHTML = `📋 ${name} <span class="delete-list">×</span>`;
+    listTabs.appendChild(newTab);
+    
+    // Switch to new list
+    switchToList(listId);
+  }
+
+  function switchToList(listId) {
+    currentListId = listId;
+    
+    // Update active tab
+    document.querySelectorAll('.list-tab').forEach(tab => {
+      tab.classList.remove('active');
+      if (tab.getAttribute('data-list') === listId) {
+        tab.classList.add('active');
+      }
+    });
+    
+    // Render the selected list
+    renderList();
+  }
+
+  function deleteList(listId) {
+    if (listId === 'default') return; // Can't delete default list
+    
+    delete allLists[listId];
+    
+    // Remove tab
+    const tabToRemove = document.querySelector(`[data-list="${listId}"]`);
+    if (tabToRemove) {
+      tabToRemove.remove();
+    }
+    
+    // Switch to default list if we deleted the current one
+    if (currentListId === listId) {
+      switchToList('default');
+    }
+  }
   function addItemToDOM(itemId, toDoItem, done = false, priority = "medium", dueDate = "", category = "") {
     // create an li
     const li = document.createElement('li');
@@ -144,14 +235,14 @@
   }
 
   function addItemToArray(itemId, toDoItem, priority = "medium", dueDate = "", category = "") {
-    // add item to array as an object with an ID, done property, priority, due date, and category
-  toDoListArray.push({ itemId, toDoItem, done: false, priority, dueDate });
-    console.log(toDoListArray);
+    // add item to current list as an object with an ID, done property, priority, due date
+    allLists[currentListId].push({ itemId, toDoItem, done: false, priority, dueDate });
+    console.log(allLists);
   }
 
 
   function toggleItemDone(id) {
-    toDoListArray = toDoListArray.map(item => {
+    allLists[currentListId] = getCurrentList().map(item => {
       if (item.itemId === id) {
         return { ...item, done: !item.done };
       }
@@ -162,8 +253,8 @@
 
   function renderList() {
     ul.innerHTML = '';
-    toDoListArray.forEach(item => {
-  addItemToDOM(item.itemId, item.toDoItem, item.done, item.priority, item.dueDate);
+    getCurrentList().forEach(item => {
+      addItemToDOM(item.itemId, item.toDoItem, item.done, item.priority, item.dueDate);
     });
   }
 
